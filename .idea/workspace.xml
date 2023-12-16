@@ -4,24 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae85645a-f041-4d58-969c-1069ff057b7a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrafficSimulation.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traffic/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traffic/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traffic/Crosswalk.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traffic/Intersection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traffic/Kanwa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traffic/Lane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traffic/MainFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traffic/MovingObjects.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traffic/Pedestrian.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Traffic/Sidewalk.java" afterDir="false" />
+    <list default="true" id="ae85645a-f041-4d58-969c-1069ff057b7a" name="Changes" comment="hm">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Traffic/MovingObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Traffic/MovingObjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Traffic/Pedestrian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Traffic/Pedestrian.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +21,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -54,6 +44,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -65,11 +56,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1702692317949</updated>
-      <workItem from="1702692318994" duration="723000" />
+      <workItem from="1702692318994" duration="1362000" />
     </task>
+    <task id="LOCAL-00001" summary="hm">
+      <created>1702693160643</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702693160643</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hm" />
+    <option name="LAST_COMMIT_MESSAGE" value="hm" />
   </component>
 </project>
