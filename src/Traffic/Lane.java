@@ -2,6 +2,8 @@ package Traffic;
 
 import javax.swing.*;
 import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Lane extends JPanel {
 
@@ -40,6 +42,18 @@ public class Lane extends JPanel {
 
     public int getyDirection() {
         return yDirection;
+    }
+
+    public Lane whichLane(ArrayList<Lane> laneList, int x, int y)
+    {
+        for( Lane i : laneList)
+        {
+            if(x >= this.X && x <= this.X + this.width && y >= this.Y && y <= this.Y + this.height)
+            {
+                return i;
+            }
+        }
+        return null;
     }
 
 

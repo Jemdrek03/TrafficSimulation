@@ -16,7 +16,6 @@ public abstract class MovingObjects {
     {
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
-
     }
 
     public void move()

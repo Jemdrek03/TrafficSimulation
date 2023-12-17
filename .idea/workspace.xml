@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae85645a-f041-4d58-969c-1069ff057b7a" name="Changes" comment="Test v2" />
+    <list default="true" id="ae85645a-f041-4d58-969c-1069ff057b7a" name="Changes" comment="Test v2">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Traffic/Lane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Traffic/Lane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Traffic/MovingObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Traffic/MovingObjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Traffic/Sidewalk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Traffic/Sidewalk.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,7 +55,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -63,6 +69,7 @@
       <updated>1702692317949</updated>
       <workItem from="1702692318994" duration="1673000" />
       <workItem from="1702694049592" duration="439000" />
+      <workItem from="1702854570227" duration="1052000" />
     </task>
     <task id="LOCAL-00001" summary="hm">
       <created>1702693160643</created>
