@@ -39,7 +39,7 @@ public class Sidewalk {
         {
             if(x >= this.X && x <= this.X + this.width && y >= this.Y && y <= this.Y + this.height)
             {
-                return i;
+                return i;//
             }
         }
         return null;
