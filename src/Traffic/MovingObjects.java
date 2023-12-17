@@ -14,6 +14,7 @@ public abstract class MovingObjects {
 
     public MovingObjects(int x, int y, int xSpeed, int ySpeed )
     {
+        super();
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
     }
