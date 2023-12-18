@@ -10,6 +10,14 @@ public abstract class MovingObjects {
 
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     public int getxSpeed() {
         return xSpeed;
     }

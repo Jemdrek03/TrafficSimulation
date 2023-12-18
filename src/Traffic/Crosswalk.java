@@ -6,12 +6,23 @@ import java.util.ArrayList;
 
 public class Crosswalk extends JPanel {
     private int X, Y, width, height, Case ;
-    public Crosswalk(int x, int y, int width, int height, int Case){
+    private ArrayList<Lights> lights;
+    private Lights light1, light2;
+
+    public Lights getLight1() {
+        return light1;
+    }
+
+    public Crosswalk(int x, int y, int width, int height, int Case, Lights light1, Lights light2){
         this.X = x;
         this.Y = y;
         this.height = height;
         this.width = width;
         this.Case = Case;
+//        lights.add(light1);
+//        lights.add(light2);
+        this.light1 = light1;
+        this.light2 = light2;
     }
 
     public Crosswalk contains(int x, int y, ArrayList<Crosswalk> crosswalks )
@@ -66,6 +77,14 @@ public class Crosswalk extends JPanel {
                 g2d.fillRect(xTMP,yTMP+this.height,CSHeight,CSWidth);
                 xTMP += Correction;
             }
+        }
+        if(this.light1 != null)
+        {
+            this.light1.draw(g2d);
+        }
+        if(this.light2 != null)
+        {
+            this.light2.draw(g2d);
         }
     }
 }

@@ -8,7 +8,8 @@ import java.util.ArrayList;
 public class Lane extends JPanel {
 
     private int X, Y, width, height,xDirection, yDirection;
-    public Lane(int x, int y, int width, int height, int xDirection, int yDirection)
+    private Lights light;
+    public Lane(int x, int y, int width, int height, int xDirection, int yDirection, Lights light)
     {
         this.X = x;
         this.Y = y;
@@ -16,10 +17,11 @@ public class Lane extends JPanel {
         this.width = width;
         this.xDirection = xDirection;
         this.yDirection = yDirection;
+        this.light = light;
 
     }
 
-    protected void draw(Graphics g2d)
+    protected void draw(Graphics2D g2d)
     {
         g2d.setColor(Color.BLACK);
         g2d.fillRect(this.X, this.Y, this.width, this.height);
@@ -33,6 +35,10 @@ public class Lane extends JPanel {
         {
             g2d.drawLine(this.X, this.Y, this.X, this.Y + this.height);
             g2d.drawLine(this.X + width, this.Y, this.X + width, this.Y + this.height);
+        }
+        if(this.light != null)
+        {
+            light.draw(g2d);
         }
     }
 

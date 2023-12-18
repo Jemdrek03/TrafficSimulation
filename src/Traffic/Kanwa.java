@@ -4,12 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Kanwa extends JPanel implements ActionListener {
 
-    Image image;
-    Graphics2D buffer;
-    Graphics2D device;
+    private Image image;
+    private Graphics2D buffer;
+    private Graphics2D device;
+    private ArrayList<Pedestrian> pedestrians;
+    private ArrayList<Sidewalk> sidewalks;
+    private ArrayList<Crosswalk> crosswalks;
+    private Pedestrian pedestrian;
 
     private int x, y, height, width;
     private Timer timer ;
@@ -23,6 +28,7 @@ public class Kanwa extends JPanel implements ActionListener {
         this.width = width;
         this.x = x;
         this.y = y;
+  //     timer = new Timer(100, this);
 
     }
 
@@ -42,6 +48,8 @@ public class Kanwa extends JPanel implements ActionListener {
         device.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         timer = new Timer(100, this);
         i1 = new Intersection(width/3, height/3, width/3, height/3, buffer);
+        pedestrian = new Pedestrian(10, 37 , 0, 0, buffer, pedestrians, i1.getSidewalkList(), i1.getCrosswalkList() );
+        pedestrians.add(pedestrian);
         timer.start();
     }
 }
