@@ -16,6 +16,14 @@ public class Intersection {
 
     ArrayList<Crosswalk> crosswalkList = new ArrayList<>();
 
+    public ArrayList<Crosswalk> getCrosswalkList() {
+        return crosswalkList;
+    }
+
+    public ArrayList<Sidewalk> getSidewalkList() {
+        return sidewalkList;
+    }
+
     private Timer timer;
 
     public Intersection(int x, int y, int width, int height, Graphics2D buffer) {

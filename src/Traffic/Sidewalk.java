@@ -6,6 +6,15 @@ import java.util.ArrayList;
 public class Sidewalk {
 
     private int X, Y, height, width, xDirection, yDirection;
+
+    public int getxDirection() {
+        return xDirection;
+    }
+
+    public int getyDirection() {
+        return yDirection;
+    }
+
     public Sidewalk(int x, int y, int width, int height, int xDirection, int YDirection)
     {
         this.X = x;
@@ -33,16 +42,16 @@ public class Sidewalk {
         }
     }
 
-    public Sidewalk whichSidewalk(ArrayList<Sidewalk> sidewalks, int x, int y)
+    public boolean whichSidewalk(ArrayList<Sidewalk> sidewalks, int x, int y)
     {
         for(Sidewalk i : sidewalks)
         {
             if(x >= this.X && x <= this.X + this.width && y >= this.Y && y <= this.Y + this.height)
             {
-                return i;
+                return true;
             }
         }
-        return null;
+        return false;
     }
 
 }

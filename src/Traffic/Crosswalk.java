@@ -2,6 +2,7 @@ package Traffic;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Crosswalk extends JPanel {
     private int X, Y, width, height, Case ;
@@ -11,6 +12,18 @@ public class Crosswalk extends JPanel {
         this.height = height;
         this.width = width;
         this.Case = Case;
+    }
+
+    public Crosswalk contains(int x, int y, ArrayList<Crosswalk> crosswalks )
+    {
+        for( Crosswalk i : crosswalks)
+        {
+            if( (x + 1 >= this.X && x <= this.X + this.width) || (x-1 <= this.X + this.width && x >= this.X) || (y + 1 >= this.Y && y <= this.Y + this.height ) || (y - 1 <= this.Y + this.height && y >= this.Y))
+            {
+                return i;
+            }
+        }
+        return null;
     }
 
     protected void draw(Graphics2D g2d)
