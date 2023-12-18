@@ -6,12 +6,14 @@ import java.awt.event.ActionListener;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 
-public class Pedestrian extends MovingObjects implements ActionListener {
+public class Pedestrian extends MovingObjects implements ActionListener, Runnable {
 
-    private int pedestrianSize = 5;
+    private int pedestrianSize = 10;
     private Graphics2D buffer;
-    private int x, y, xSpeed, ySpeed;
     private int maxSize = 900;
+    private int delay = 70;
+    private boolean bol = false;
+    private boolean bol1 = false;
 
     private ArrayList<Pedestrian> pedestrians;
     private ArrayList<Sidewalk> sidewalks;
@@ -20,6 +22,7 @@ public class Pedestrian extends MovingObjects implements ActionListener {
     private Sidewalk sidewalk;
     private Crosswalk crosswalk;
     private int previousX, previousY;
+    private int bounds = 900 + pedestrianSize;
 
     public Pedestrian(int x, int y, int xSpeed, int ySpeed, Graphics2D buffer, ArrayList<Pedestrian> pedestrians, ArrayList<Sidewalk> sidewalks, ArrayList<Crosswalk> crosswalks)
     {
@@ -37,11 +40,14 @@ public class Pedestrian extends MovingObjects implements ActionListener {
 
     public void move()
     {
-        //check if collision == false
-        if(Collision(pedestrians,x,y, xSpeed, ySpeed) == true)
-        {
-            //sleep
-        }
+//        for( Pedestrian p : pedestrians)
+//        {
+//            if(p != this && p.Collision(this.x, this.y, this.getxSpeed(), this.getySpeed()) == true)
+//            {
+//                return;
+//            }
+//        }
+        onSidewalk = false;
         for( Sidewalk i : this.sidewalks)
         {
             if(i.whichSidewalk(this.sidewalks, this.x, this.y) == true)
@@ -52,7 +58,7 @@ public class Pedestrian extends MovingObjects implements ActionListener {
         }
         if( onSidewalk == true)
         {
-            if(sidewalk.getxDirection() != 0 && sidewalk.getyDirection() != 0)
+            if(sidewalk.getxDirection() != 0 || sidewalk.getyDirection() != 0)
             {
                 previousX = sidewalk.getxDirection();
                 previousY = sidewalk.getyDirection();
@@ -61,20 +67,27 @@ public class Pedestrian extends MovingObjects implements ActionListener {
             }
             else
             {
-                if(crosswalk.contains(this.x, this.y, this.crosswalks) != null)
+                crosswalk = null;
+                for( Crosswalk c : crosswalks)
+                {
+                    if(c.contains(this.x, this.y) )
+                    {
+                        crosswalk = c;
+                    }
+                }
+                if(crosswalk != null)
                 {
                     //swiatla
-                    crosswalk = crosswalk.contains(this.x, this.y, this.crosswalks);
                     if(crosswalk.getLight1().isOn() == false)
                     {
-
+                        return;
                     }
                     else
                     {
+
                         this.x += previousX;
                         this.y += previousY;
                     }
-                    //??
                 }
                 else
                 {
@@ -93,38 +106,37 @@ public class Pedestrian extends MovingObjects implements ActionListener {
 
     public void run()
     {
-        while(x <= 900 & y <= 900 )
+        while(this.x <= bounds && this.y <= bounds && this.x >= 0 - pedestrianSize && this.y >= 0 - pedestrianSize )
         {
             move();
-//            try{
-//                Thread.sleep(delay);
-//            }
-//            catch (InterruptedException e)
-//            {
-//                System.out.println(Thread.currentThread().isInterrupted());
-//            }
+            try{
+                Thread.sleep(delay);
+            }
+            catch (InterruptedException e)
+            {
+                System.out.println(Thread.currentThread().isInterrupted());
+            }
         }
+        System.out.println("out of bounds");
         pedestrians.remove(this);
 
     }
 
 
-    public boolean Collision(ArrayList<Pedestrian> pedestrians, int x, int y, int xSpeed, int ySpeed)
+    public boolean Collision( int x, int y, int xSpeed, int ySpeed)
     {
-        for( Pedestrian p : pedestrians)
-        {
-            if(x + xSpeed >= p.getX() && x <= p.getX() + pedestrianSize && y  + ySpeed>= p.getY() && y <= p.getY() + pedestrianSize)
+        if(x + xSpeed >= this.x && x <= this.x + pedestrianSize && y  + ySpeed>= this.y && y <= this.y + pedestrianSize)
             {
                 return true;
             }
-        }
+
         return false;
 
     }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        this.buffer.setColor(Color.PINK);
+        this.buffer.setColor(Color.GREEN);
         this.buffer.fillRect(this.x, this.y, pedestrianSize, pedestrianSize);
 
     }

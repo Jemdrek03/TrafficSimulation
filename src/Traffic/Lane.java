@@ -8,8 +8,14 @@ import java.util.ArrayList;
 public class Lane extends JPanel {
 
     private int X, Y, width, height,xDirection, yDirection;
+    private int direction;
     private Lights light;
-    public Lane(int x, int y, int width, int height, int xDirection, int yDirection, Lights light)
+
+    public Lights getLight() {
+        return light;
+    }
+
+    public Lane(int x, int y, int width, int height, int xDirection, int yDirection, Lights light, int direction)
     {
         this.X = x;
         this.Y = y;
@@ -18,6 +24,7 @@ public class Lane extends JPanel {
         this.xDirection = xDirection;
         this.yDirection = yDirection;
         this.light = light;
+        this.direction = direction;
 
     }
 
@@ -50,6 +57,7 @@ public class Lane extends JPanel {
         return yDirection;
     }
 
+
     public Lane whichLane(ArrayList<Lane> laneList, int x, int y)
     {
         for( Lane i : laneList)
@@ -62,5 +70,7 @@ public class Lane extends JPanel {
         return null;
     }
 
-
+    public int getDirection() {
+        return direction;
+    }
 }

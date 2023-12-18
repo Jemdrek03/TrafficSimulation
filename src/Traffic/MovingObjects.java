@@ -3,12 +3,12 @@ package Traffic;
 public abstract class MovingObjects {
 
 
-    private int x, y;
+    public int x, y;
     private int xSpeed, ySpeed;
 
-    public MovingObjects() {
-
-    }
+//    public MovingObjects() {
+//
+//    }
 
     public int getX() {
         return x;
@@ -36,7 +36,8 @@ public abstract class MovingObjects {
 
     public MovingObjects(int x, int y, int xSpeed, int ySpeed )
     {
-        super();
+        this.x = x;
+        this.y = y;
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
     }

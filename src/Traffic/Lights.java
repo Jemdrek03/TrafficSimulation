@@ -7,6 +7,18 @@ public class Lights {
     private int radius, x, y;
     public boolean isOn;
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setOn(boolean on) {
+        isOn = on;
+    }
+
     public boolean isOn() {
         return isOn;
     }

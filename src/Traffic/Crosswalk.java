@@ -13,6 +13,18 @@ public class Crosswalk extends JPanel {
         return light1;
     }
 
+    public void setLight1(Lights light1) {
+        this.light1 = light1;
+    }
+
+    public Lights getLight2() {
+        return light2;
+    }
+
+    public void setLight2(Lights light2) {
+        this.light2 = light2;
+    }
+
     public Crosswalk(int x, int y, int width, int height, int Case, Lights light1, Lights light2){
         this.X = x;
         this.Y = y;
@@ -25,16 +37,14 @@ public class Crosswalk extends JPanel {
         this.light2 = light2;
     }
 
-    public Crosswalk contains(int x, int y, ArrayList<Crosswalk> crosswalks )
+    public boolean contains(int x, int y )
     {
-        for( Crosswalk i : crosswalks)
-        {
-            if( (x + 1 >= this.X && x <= this.X + this.width) || (x-1 <= this.X + this.width && x >= this.X) || (y + 1 >= this.Y && y <= this.Y + this.height ) || (y - 1 <= this.Y + this.height && y >= this.Y))
+            if( (x + 3 >= 300 && x <= 600) || (x-3 <= 600 && x >= 300) || (y + 3 >= 300 && y <= 600 ) || (y - 3 <= 600 && y >= 300))
             {
-                return i;
+                return true;
             }
-        }
-        return null;
+
+        return false;
     }
 
     protected void draw(Graphics2D g2d)
