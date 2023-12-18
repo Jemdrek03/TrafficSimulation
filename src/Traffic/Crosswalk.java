@@ -39,7 +39,7 @@ public class Crosswalk extends JPanel {
 
     public boolean contains(int x, int y )
     {
-            if( (x + 3 >= 300 && x <= 600) || (x-3 <= 600 && x >= 300) || (y + 3 >= 300 && y <= 600 ) || (y - 3 <= 600 && y >= 300))
+            if( (x + 1 >= 300 && x <=450) || (x-1 <= 600 && x >= 450) || (y + 1 >= 300 && y <= 400 ) || (y - 1 <= 600 && y >= 450))
             {
                 return true;
             }

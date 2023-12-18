@@ -78,7 +78,7 @@ public class Pedestrian extends MovingObjects implements ActionListener, Runnabl
                 if(crosswalk != null)
                 {
                     //swiatla
-                    if(crosswalk.getLight1().isOn() == false)
+                    if(crosswalk.getLight1().isOn() == false && crosswalk.getLight2().isOn() == false )
                     {
                         return;
                     }

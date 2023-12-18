@@ -30,7 +30,7 @@ public class MainFrame extends JFrame {
                 kanwa.initialize();
             }
         });
-        setResizable(false);
+
     }
 
 

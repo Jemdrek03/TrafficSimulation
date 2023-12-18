@@ -45,7 +45,7 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
     {
         for( Car p : cars)
         {
-            if(p != this && x + 2*xSpeed >= p.getX() && x <= p.getX() + carsize&& y +  2*ySpeed>= p.getY() && y <= p.getY() + carsize)
+            if(p != this && x + 3*xSpeed >= p.getX() && x <= p.getX() && y +  3*ySpeed>= p.getY() && y <= p.getY())
             {
                 return true;
             }
@@ -71,13 +71,13 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
 
     public void move()
     {
-        for( Pedestrian p : pedestrians)
-        {
-            if(p.Collision(this.x, this.y, this.getxSpeed(), this.getySpeed()) == true)
-            {
-                return;
-            }
-        }
+//        for( Pedestrian p : pedestrians)
+//        {
+//            if(p.Collision(this.x, this.y, this.getxSpeed(), this.getySpeed()) == true)
+//            {
+//                return;
+//            }
+//        }
         if( Collision(this.cars, this.x, this.y, getxSpeed(), getySpeed() ) == true)
         {
             return;

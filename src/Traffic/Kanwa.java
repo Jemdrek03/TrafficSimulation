@@ -102,10 +102,10 @@ public class Kanwa extends JPanel implements ActionListener {
                 i1.crosswalkList.get(0).getLight2().setOn(!turn);
                 i1.crosswalkList.get(2).getLight1().setOn(!turn);
                 i1.crosswalkList.get(2).getLight2().setOn(!turn);
-                i1.crosswalkList.get(1).getLight1().setOn(turn);
-                i1.crosswalkList.get(1).getLight2().setOn(turn);
-                i1.crosswalkList.get(3).getLight1().setOn(turn);
-                i1.crosswalkList.get(3).getLight2().setOn(turn);
+                i1.crosswalkList.get(1).getLight1().setOn(!turn);
+                i1.crosswalkList.get(1).getLight2().setOn(!turn);
+                i1.crosswalkList.get(3).getLight1().setOn(!turn);
+                i1.crosswalkList.get(3).getLight2().setOn(!turn);
                 counter = (counter + 3) % 12;
             }
         });
