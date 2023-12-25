@@ -36,19 +36,54 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
         this.cars = cars;
         this.pedestrians = pedestrians;
         this.crosswalks = crosswalks;
-
-
     }
 
 
     public boolean Collision(ArrayList<Car> cars, int x, int y, int xSpeed, int ySpeed)
     {
-        for( Car p : cars)
+//        for( Car p : cars)
+//        {
+//            if(p != this && x + 2*xSpeed >= p.getX() && x <= p.getX() && y +  2*ySpeed>= p.getY() && y <= p.getY())
+//            {
+//                return true;
+//            }
+//        }
+//        return false;
+        for(Car p : cars)
         {
-            if(p != this && x + 3*xSpeed >= p.getX() && x <= p.getX() && y +  3*ySpeed>= p.getY() && y <= p.getY())
+            if(p != this)
             {
-                return true;
+                if(xSpeed > 0)
+                {
+                    if( x  + xSpeed >= p.getX() - carsize && x + xSpeed <= p.getX())
+                    {
+                        return true;
+                    }
+                }
+                else if( xSpeed < 0)
+                {
+                    if(x + xSpeed >= p.getX() && x + xSpeed <= p.getX() + 2 * carsize)
+                    {
+                        return true;
+                    }
+                }
+                else if( ySpeed > 0)
+                {
+                    if(y + ySpeed >= p.getY() - carsize && y + ySpeed <= p.getY())
+                    {
+                        return true;
+                    }
+                }
+                else if( ySpeed < 0)
+                {
+                    if(y + ySpeed >= p.getY() && y + ySpeed <= p.getY() + 2 * carsize)
+                    {
+                        return true;
+                    }
+                }
+
             }
+
         }
         return false;
     }
@@ -83,7 +118,7 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
             return;
         }
         onLane = false;
-        for( Lane l : this.lanes)
+        for(Lane l : this.lanes)
         {
             if(l.whichLane(lanes,this.x,this.y) != null)
             {
@@ -94,6 +129,7 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
         }
         if( onLane == true)
         {
+            Caser = 0;
             if(lane.getLight().isOn == false)
             {
 
@@ -104,6 +140,8 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
                     else {
                         previousX = lane.getxDirection();
                         previousY = lane.getyDirection();
+                        setxSpeed(lane.getxDirection());
+                        setySpeed(lane.getyDirection());
                         this.x += previousX;
                         this.y += previousY;
                     }
@@ -111,6 +149,8 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
             }
             else
             {
+                setxSpeed(lane.getxDirection());
+                setySpeed(lane.getyDirection());
                 previousX = lane.getxDirection();
                 previousY = lane.getyDirection();
                 this.x += previousX;
@@ -134,6 +174,8 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
                 //zabawa
                 if(Caser == 1 && rs == 1)
                 {
+                    setxSpeed(previousX);
+                    setySpeed(previousY);
                     this.x += previousX;
                     this.y += previousY;
                 }
@@ -141,6 +183,8 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
                 {
                     if(distancedrivenr <= distanceForRightTurn)
                     {
+                        setxSpeed(previousX);
+                        setySpeed(previousY);
                         this.x += previousX;
                         this.y += previousY;
                         distancedrivenr += 10;
@@ -149,18 +193,22 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
                     {
                         if(previousX > 0)
                         {
+                            setySpeed(10);
                             this.y += 10;
                         }
                         else if( previousX < 0 )
                         {
+                            setySpeed(-10);
                             this.y -= 10;
                         }
                         else if( previousY > 0)
                         {
+                            setxSpeed(-10);
                             this.x -= 10;
                         }
                         else
                         {
+                            setxSpeed(10);
                             this.x += 10;
                         }
                     }
@@ -169,6 +217,8 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
                 {
                     if(distancedrivenl <= distanceForLeftTurn)
                     {
+                        setxSpeed(previousX);
+                        setySpeed(previousY);
                         this.x += previousX;
                         this.y += previousY;
                         distancedrivenl += 10;
@@ -177,21 +227,32 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
                     {
                         if( previousX > 0 )
                         {
+                            setySpeed(-10);
                             this.y -= 10;
                         }
                         else if( previousX < 0 )
                         {
+                            setySpeed(10);
                             this.y += 10;
                         }
                         else if( previousY > 0 )
                         {
+                            setxSpeed(10);
                             this.x += 10;
                         }
                         else
                         {
+                            setxSpeed(-10);
                             this.x -= 10;
                         }
                     }
+                }
+                else
+                {
+                    setxSpeed(previousX);
+                    setySpeed(previousY);
+                    this.x += previousX;
+                    this.y += previousY;
                 }
             }
         }
