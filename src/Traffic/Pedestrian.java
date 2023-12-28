@@ -12,13 +12,11 @@ public class Pedestrian extends MovingObjects implements ActionListener, Runnabl
     private Graphics2D buffer;
     private int maxSize = 900;
     private int delay = 70;
-    private boolean bol = false;
-    private boolean bol1 = false;
-
     private ArrayList<Pedestrian> pedestrians;
     private ArrayList<Sidewalk> sidewalks;
     private ArrayList<Crosswalk> crosswalks;
     private boolean onSidewalk = false;
+    private boolean onCrosswalk = false;
     private Sidewalk sidewalk;
     private Crosswalk crosswalk;
     private int previousX, previousY;
@@ -75,16 +73,16 @@ public class Pedestrian extends MovingObjects implements ActionListener, Runnabl
                         crosswalk = c;
                     }
                 }
-                if(crosswalk != null)
+                if(crosswalk != null && onCrosswalk == false)
                 {
                     //swiatla
-                    if(crosswalk.getLight1().isOn() == false && crosswalk.getLight2().isOn() == false )
+                    if(!crosswalk.getLight1().isOn() )
                     {
                         return;
                     }
                     else
                     {
-
+                        onCrosswalk = true;
                         this.x += previousX;
                         this.y += previousY;
                     }

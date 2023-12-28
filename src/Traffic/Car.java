@@ -55,28 +55,28 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
             {
                 if(xSpeed > 0)
                 {
-                    if( x  + xSpeed >= p.getX() - carsize && x + xSpeed <= p.getX())
+                    if( x  + carsize +xSpeed >= p.getX() && x + xSpeed + carsize <= p.getX() + carsize && y == p.getY())
                     {
                         return true;
                     }
                 }
                 else if( xSpeed < 0)
                 {
-                    if(x + xSpeed >= p.getX() && x + xSpeed <= p.getX() + 2 * carsize)
+                    if(x + xSpeed >= p.getX() && x + xSpeed <= p.getX() + carsize && y == p.getY())
                     {
                         return true;
                     }
                 }
                 else if( ySpeed > 0)
                 {
-                    if(y + ySpeed >= p.getY() - carsize && y + ySpeed <= p.getY())
+                    if(y + ySpeed + carsize >= p.getY() && y + ySpeed + carsize <= p.getY() + carsize && x == p.getX())
                     {
                         return true;
                     }
                 }
-                else if( ySpeed < 0)
+                else
                 {
-                    if(y + ySpeed >= p.getY() && y + ySpeed <= p.getY() + 2 * carsize)
+                    if(y + ySpeed >= p.getY() && y + ySpeed <= p.getY() + carsize && x == p.getX())
                     {
                         return true;
                     }
@@ -113,7 +113,14 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
 //                return;
 //            }
 //        }
-        if( Collision(this.cars, this.x, this.y, getxSpeed(), getySpeed() ) == true)
+        //collision for some reason doesnt seem to work
+        //it takes the opposite direction for some reason too
+        //i know actually
+        // i have to clear Xspeed/Yspeed after it completes a move in this direction
+        //tomorrow tho
+        //XDD
+        //It took the X/Y coordinates even tho it shoudlnt have, easy x == p.getX() solved the whole problem
+        if(Collision(this.cars, this.x, this.y, getxSpeed(), getySpeed()))
         {
             return;
         }
@@ -127,13 +134,13 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
                 break;
             }
         }
-        if( onLane == true)
+        if(onLane)
         {
             Caser = 0;
-            if(lane.getLight().isOn == false)
+            if(!lane.getLight().isOn)
             {
 
-                    if(containsS(this.x, this.y, lane.getxDirection(), lane.getyDirection()) == true)
+                    if(containsS(this.x, this.y, lane.getxDirection(), lane.getyDirection()))
                     {
                         return;
                     }
@@ -194,21 +201,25 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
                         if(previousX > 0)
                         {
                             setySpeed(10);
+                            setxSpeed(0);
                             this.y += 10;
                         }
                         else if( previousX < 0 )
                         {
                             setySpeed(-10);
+                            setxSpeed(0);
                             this.y -= 10;
                         }
                         else if( previousY > 0)
                         {
                             setxSpeed(-10);
+                            setySpeed(0);
                             this.x -= 10;
                         }
                         else
                         {
                             setxSpeed(10);
+                            setySpeed(0);
                             this.x += 10;
                         }
                     }
@@ -227,22 +238,26 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
                     {
                         if( previousX > 0 )
                         {
+                            setxSpeed(0);
                             setySpeed(-10);
                             this.y -= 10;
                         }
                         else if( previousX < 0 )
                         {
                             setySpeed(10);
+                            setxSpeed(0);
                             this.y += 10;
                         }
                         else if( previousY > 0 )
                         {
                             setxSpeed(10);
+                            setySpeed(0);
                             this.x += 10;
                         }
                         else
                         {
                             setxSpeed(-10);
+                            setySpeed(0);
                             this.x -= 10;
                         }
                     }

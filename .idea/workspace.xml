@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae85645a-f041-4d58-969c-1069ff057b7a" name="Changes" comment="Adding methods for Lanes and Sidewalks">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="ae85645a-f041-4d58-969c-1069ff057b7a" name="Changes" comment="Trying to fix collison detection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Traffic/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Traffic/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Traffic/Kanwa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Traffic/Kanwa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Traffic/Pedestrian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Traffic/Pedestrian.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +66,9 @@
       <workItem from="1702694049592" duration="439000" />
       <workItem from="1702854570227" duration="1319000" />
       <workItem from="1703368035008" duration="327000" />
-      <workItem from="1703527690363" duration="632000" />
+      <workItem from="1703527690363" duration="1335000" />
+      <workItem from="1703547485234" duration="1367000" />
+      <workItem from="1703739790659" duration="975000" />
     </task>
     <task id="LOCAL-00001" summary="hm">
       <created>1702693160643</created>
@@ -153,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702904706902</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Trying to fix collison detection">
+      <created>1703528435092</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1703528435092</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +198,8 @@
     <MESSAGE value="Test v2" />
     <MESSAGE value="Adding Spaghetti Code" />
     <MESSAGE value="Spaghetti code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spaghetti code" />
+    <MESSAGE value="Trying to fix collison detection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying to fix collison detection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -202,32 +211,32 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Traffic/Car.java</url>
-          <line>161</line>
+          <line>168</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Traffic/Car.java</url>
-          <line>169</line>
+          <line>176</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Traffic/Car.java</url>
-          <line>181</line>
+          <line>188</line>
           <option name="timeStamp" value="38" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Traffic/Car.java</url>
-          <line>174</line>
+          <line>181</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Traffic/Car.java</url>
-          <line>215</line>
+          <line>226</line>
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Traffic/Pedestrian.java</url>
-          <line>69</line>
+          <line>67</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
