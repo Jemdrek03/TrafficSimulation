@@ -1,8 +1,11 @@
-package Traffic;
+package immovable;
+
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+
+import immovable.Lights;
 
 public class Crosswalk extends JPanel {
     private int X, Y, width, height, Case ;
@@ -31,8 +34,6 @@ public class Crosswalk extends JPanel {
         this.height = height;
         this.width = width;
         this.Case = Case;
-//        lights.add(light1);
-//        lights.add(light2);
         this.light1 = light1;
         this.light2 = light2;
     }

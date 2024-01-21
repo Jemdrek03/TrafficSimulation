@@ -1,11 +1,11 @@
-package Traffic;
+package immovable;
 
 import java.util.Random;
 
 public class Spawn {
     private int x, y, object;
     private int xtmp;
-    public Spawn( int object)
+    public Spawn(int object)
     {
         this.object = object;
         if(this.object == 1)

@@ -1,16 +1,17 @@
-package Traffic;
+package movable;
+
+import immovable.Crosswalk;
+import immovable.Sidewalk;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Pedestrian extends MovingObjects implements ActionListener, Runnable {
 
     private int pedestrianSize = 10;
     private Graphics2D buffer;
-    private int maxSize = 900;
     private int delay = 70;
     private ArrayList<Pedestrian> pedestrians;
     private ArrayList<Sidewalk> sidewalks;
@@ -25,26 +26,14 @@ public class Pedestrian extends MovingObjects implements ActionListener, Runnabl
     public Pedestrian(int x, int y, int xSpeed, int ySpeed, Graphics2D buffer, ArrayList<Pedestrian> pedestrians, ArrayList<Sidewalk> sidewalks, ArrayList<Crosswalk> crosswalks)
     {
         super(x, y, xSpeed, ySpeed);
-//        this.x = x;
-//        this.y = y;
-//        this.xSpeed = xSpeed;
-//        this.ySpeed = ySpeed;
         this.buffer = buffer;
         this.pedestrians = pedestrians;
         this.sidewalks = sidewalks;
         this.crosswalks = crosswalks;
-
     }
 
     public void move()
     {
-//        for( Pedestrian p : pedestrians)
-//        {
-//            if(p != this && p.Collision(this.x, this.y, this.getxSpeed(), this.getySpeed()) == true)
-//            {
-//                return;
-//            }
-//        }
         onSidewalk = false;
         for( Sidewalk i : this.sidewalks)
         {

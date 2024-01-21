@@ -1,4 +1,6 @@
-package Traffic;
+package immovable;
+
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class Intersection  implements ActionListener{
+public class Intersection implements ActionListener{
 
     private int width, height;
     private int correction = 300/8;
@@ -15,7 +17,7 @@ public class Intersection  implements ActionListener{
     ArrayList<Lane> laneList = new ArrayList<>();
     ArrayList<Sidewalk> sidewalkList = new ArrayList<>();
 
-    ArrayList<Crosswalk> crosswalkList = new ArrayList<>();
+    public ArrayList<Crosswalk> crosswalkList = new ArrayList<>();
 
     public ArrayList<Crosswalk> getCrosswalkList() {
         return crosswalkList;
@@ -91,24 +93,6 @@ public class Intersection  implements ActionListener{
         crosswalkList.add(new Crosswalk(x, y, width, height, 4, new Lights(x+ width + 5, y + height + correction, 10, false), new Lights(x-10, y + height + correction, 10, false)));
 
     }
-
-//    protected void draw(Graphics2D g2d) {
-//        g2d.setColor(Color.BLACK);
-//        g2d.fillRect(x, y, this.width, this.height);
-//        for( Lane i : laneList)
-//        {
-//            i.draw(g2d);
-//        }
-//        for(Sidewalk i : sidewalkList)
-//        {
-//            i.draw(buffer);
-//        }
-//        for(Crosswalk i : crosswalkList)
-//        {
-//            i.draw(buffer);
-//        }
-//
-//    }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {

@@ -1,6 +1,8 @@
-package Traffic;
+package movable;
 
-import javax.swing.*;
+import immovable.Crosswalk;
+import immovable.Lane;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -41,14 +43,6 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
 
     public boolean Collision(ArrayList<Car> cars, int x, int y, int xSpeed, int ySpeed)
     {
-//        for( Car p : cars)
-//        {
-//            if(p != this && x + 2*xSpeed >= p.getX() && x <= p.getX() && y +  2*ySpeed>= p.getY() && y <= p.getY())
-//            {
-//                return true;
-//            }
-//        }
-//        return false;
         for(Car p : cars)
         {
             if(p != this)
@@ -88,6 +82,44 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
         return false;
     }
 
+    public boolean CollisionP(ArrayList<Pedestrian> pedestrians, int x, int y, int xSpeed, int ySpeed)
+    {
+        for(Pedestrian p : pedestrians)
+        {
+                if(xSpeed > 0)
+                {
+                    if( x  + carsize + carsize >= p.getX() && x  + carsize <= p.getX()  && y <= p.getY() && y + carsize >= p.getY())
+                    {
+                        return true;
+                    }
+                }
+                else if( xSpeed < 0)
+                {
+                    if(x - carsize <= p.getX() && x >= p.getX()  && y <= p.getY() && y + carsize >= p.getY())
+                    {
+                        return true;
+                    }
+                }
+                else if( ySpeed > 0)
+                {
+                    if(y + carsize <= p.getY() && y + carsize + carsize >= p.getY()  && x <= p.getX() && x + carsize >= p.getX())
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    if(y >= p.getY() && y - carsize <= p.getY() && x <= p.getX() && x + carsize >= p.getX())
+                    {
+                        return true;
+                    }
+                }
+
+
+        }
+        return false;
+    }
+
     public void run()
     {
         while(x <= bounds && y <= bounds && x >= 0 - carsize && y >= 0 - carsize)
@@ -106,13 +138,6 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
 
     public void move()
     {
-//        for( Pedestrian p : pedestrians)
-//        {
-//            if(p.Collision(this.x, this.y, this.getxSpeed(), this.getySpeed()) == true)
-//            {
-//                return;
-//            }
-//        }
         //collision for some reason doesnt seem to work
         //it takes the opposite direction for some reason too
         //i know actually
@@ -121,6 +146,10 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
         //XDD
         //It took the X/Y coordinates even tho it shoudlnt have, easy x == p.getX() solved the whole problem
         if(Collision(this.cars, this.x, this.y, getxSpeed(), getySpeed()))
+        {
+            return;
+        }
+        if(CollisionP(this.pedestrians, this.x, this.y, getxSpeed(), getySpeed()))
         {
             return;
         }
@@ -140,18 +169,18 @@ public class Car extends MovingObjects implements ActionListener, Runnable {
             if(!lane.getLight().isOn)
             {
 
-                    if(containsS(this.x, this.y, lane.getxDirection(), lane.getyDirection()))
-                    {
-                        return;
-                    }
-                    else {
-                        previousX = lane.getxDirection();
-                        previousY = lane.getyDirection();
-                        setxSpeed(lane.getxDirection());
-                        setySpeed(lane.getyDirection());
-                        this.x += previousX;
-                        this.y += previousY;
-                    }
+                if(containsS(this.x, this.y, lane.getxDirection(), lane.getyDirection()))
+                {
+                    return;
+                }
+                else {
+                    previousX = lane.getxDirection();
+                    previousY = lane.getyDirection();
+                    setxSpeed(lane.getxDirection());
+                    setySpeed(lane.getyDirection());
+                    this.x += previousX;
+                    this.y += previousY;
+                }
 
             }
             else

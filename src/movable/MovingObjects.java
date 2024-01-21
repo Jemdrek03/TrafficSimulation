@@ -1,4 +1,4 @@
-package Traffic;
+package movable;
 
 public abstract class MovingObjects {
 
@@ -6,9 +6,6 @@ public abstract class MovingObjects {
     public int x, y;
     private int xSpeed, ySpeed;
 
-//    public MovingObjects() {
-//
-//    }
 
     public int getX() {
         return x;

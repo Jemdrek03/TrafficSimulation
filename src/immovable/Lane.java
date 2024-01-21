@@ -1,8 +1,7 @@
-package Traffic;
+package immovable;
 
 import javax.swing.*;
 import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Lane extends JPanel {

@@ -1,4 +1,6 @@
-package Traffic;
+package app;
+
+import drawable.MainFrame;
 
 import java.awt.*;
 
@@ -13,3 +15,4 @@ public class App {
         });
     }
 }
+

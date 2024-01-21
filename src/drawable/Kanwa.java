@@ -1,4 +1,14 @@
-package Traffic;
+package drawable;
+
+import immovable.Crosswalk;
+import immovable.Sidewalk;
+import immovable.Intersection;
+import movable.Car;
+import movable.Pedestrian;
+import immovable.Lane;
+import immovable.Spawn;
+
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,14 +48,6 @@ public class Kanwa extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-//        i1.draw(buffer);
-
-//        for( Pedestrian p : pedestrians)
-//        {
-//            timer.addActionListener(p);
-//            new Thread(pedestrian).start();
-//
-//        }
         device.drawImage(image,0,0,null);
         buffer.clearRect(0,0,900,900);
     }
@@ -58,71 +60,12 @@ public class Kanwa extends JPanel implements ActionListener {
         device.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         timer = new Timer(30, this);
         i1 = new Intersection(width/3, height/3, width/3, height/3, buffer);
-//        pedestrian = new Pedestrian(300-37, 40, 0, 0, buffer, pedestrians, i1.getSidewalkList(), i1.getCrosswalkList() );
-//        pedestrians.add(pedestrian);
-//        timer.addActionListener(pedestrian);
-//        new Thread(pedestrian).start();
-//        car = new Car(300+37, 50, 0, 0, buffer, i1.getLaneList(), cars, pedestrians, i1.crosswalkList);
-//        cars.add(car);
-//        timer.addActionListener(car);
-//        new Thread(car).start();
-//        car = new Car(300+37+38+15, 50, 0, 0, buffer, i1.getLaneList(), cars, pedestrians, i1.crosswalkList);
-//        cars.add(car);
-//        timer.addActionListener(car);
-//        new Thread(car).start();
-//        pedestrian = new Pedestrian(750, 300-37, 0, 0, buffer, pedestrians, i1.getSidewalkList(), i1.getCrosswalkList() );
-//        pedestrians.add(pedestrian);
-//        timer.addActionListener(pedestrian);
-//        new Thread(pedestrian).start();
         timer.addActionListener(i1);
         timer.start();
 
         Timer lights = new Timer(7000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-//                boolean turn = false;
-//                switch (counter)
-//                {
-//                    case 0:
-//                        i1.getLaneList().get(0).getLight().setOn(false);
-//                        i1.getLaneList().get(1).getLight().setOn(false);
-//                        i1.getLaneList().get(2).getLight().setOn(false);
-//                        i1.getLaneList().get(3).getLight().setOn(false);
-//                        i1.crosswalkList.get(0).getLight1().setOn(!turn);
-//                        i1.crosswalkList.get(0).getLight2().setOn(!turn);
-//                        i1.crosswalkList.get(2).getLight1().setOn(!turn);
-//                        i1.crosswalkList.get(2).getLight2().setOn(!turn);
-//                        i1.crosswalkList.get(1).getLight1().setOn(!turn);
-//                        i1.crosswalkList.get(1).getLight2().setOn(!turn);
-//                        i1.crosswalkList.get(3).getLight1().setOn(!turn);
-//                        i1.crosswalkList.get(3).getLight2().setOn(!turn);
-//                        break;
-//                    case 1:
-//                        i1.crosswalkList.get(0).getLight1().setOn(turn);
-//                        i1.crosswalkList.get(0).getLight2().setOn(turn);
-//                        i1.crosswalkList.get(2).getLight1().setOn(turn);
-//                        i1.crosswalkList.get(2).getLight2().setOn(turn);
-//                        i1.crosswalkList.get(1).getLight1().setOn(turn);
-//                        i1.crosswalkList.get(1).getLight2().setOn(turn);
-//                        i1.crosswalkList.get(3).getLight1().setOn(turn);
-//                        i1.crosswalkList.get(3).getLight2().setOn(turn);
-//                        i1.getLaneList().get(0).getLight().setOn(true);
-//                        break;
-//                    case 2:
-//                        i1.getLaneList().get(0).getLight().setOn(false);
-//                        i1.getLaneList().get(1).getLight().setOn(true);
-//                        break;
-//                    case 3:
-//                        i1.getLaneList().get(1).getLight().setOn(false);
-//                        i1.getLaneList().get(2).getLight().setOn(true);
-//                        break;
-//                    case 4:
-//                        i1.getLaneList().get(2).getLight().setOn(false);
-//                        i1.getLaneList().get(3).getLight().setOn(true);
-//                        break;
-//
-//
-//                }
                 for( int i = 0; i < i1.getLaneList().size(); i++)
                 {
                     Lane l = i1.getLaneList().get(i);
